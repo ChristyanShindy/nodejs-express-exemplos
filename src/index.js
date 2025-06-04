@@ -1,9 +1,11 @@
 import * as express from 'express'
-
+import * as cookieParser from 'cookie-parser'
 const app = express()
+app.use(express.json())
+app.use(cookieParser())
 
-import userController from './controller/userController'
-import postController from './controller/postController'
+import userController from './modules/user/userController'
+import postController from './modules/post/postController'
 
 app.use('/user', userController)
 app.use('/post', postController)
